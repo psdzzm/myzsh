@@ -9,3 +9,9 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+typeset -TUx PATH path
+
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+typeset -TUx LD_LIBRARY_PATH ld_library_path

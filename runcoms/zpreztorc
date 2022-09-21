@@ -37,6 +37,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
+  'command-not-found' \
   'history-substring-search' \
   'autosuggestions' \
   'syntax-highlighting' \
