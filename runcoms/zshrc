@@ -18,13 +18,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your neeeds...
-
-path+=('/opt/texlive/2022/bin/x86_64-linux' '/opt/android-studio/bin' '/opt/android-studio/jre/bin')
+. "$HOME/.cargo/env"
+path+=('/opt/texlive/2022/bin/x86_64-linux' '/opt/android-studio/bin' '/opt/android-studio/jre/bin' '/opt/Questa/questasim/linux_x86_64/')
 
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+
+export LM_LICENSE_FILE=27017@flexserv1.tudelft.nl
 
 alias ll='ls -AlFhiv --group-directories-first'
 
