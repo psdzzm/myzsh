@@ -6,6 +6,14 @@ and prompt themes.
 
 ## Installation
 
+### Mine
+```bash
+apt install zsh
+git clone --depth=1 --shallow-submodules --recurse-submodules -j8 https://github.com/psdzzm/myzsh.git "${ZDOTDIR:-$HOME}/.zprezto"
+zsh -c 'setopt EXTENDED_GLOB; for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
+chsh -s /bin/zsh
+```
+
 ### Manual
 
 Prezto will work with any recent release of Zsh, but the minimum required

@@ -19,7 +19,8 @@ fi
 
 # Customize to your neeeds...
 . "$HOME/.cargo/env"
-path+=('/opt/texlive/2022/bin/x86_64-linux' '/opt/android-studio/bin' '/opt/android-studio/jre/bin' '/opt/Questa/questasim/linux_x86_64/')
+
+path+=('/home/ethan/.local/bin' '/opt/texlive/2022/bin/x86_64-linux' '/opt/android-studio/bin' '/opt/android-studio/jre/bin' '/opt/Questa/questasim/linux_x86_64/')
 
 ld_library_path+=('')
 
@@ -29,6 +30,8 @@ export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 export LM_LICENSE_FILE=27017@flexserv1.tudelft.nl
 
 alias ll='ls -AlFhiv --group-directories-first'
+alias df='duf'
+alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y"'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
