@@ -18,9 +18,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your neeeds...
-. "$HOME/.cargo/env"
 
-path+=('/home/ethan/.local/bin' '/opt/texlive/2022/bin/x86_64-linux' '/opt/android-studio/bin' '/opt/android-studio/jre/bin' '/opt/Questa/questasim/linux_x86_64/')
+. "$HOME/.cargo/env"  # Rust
+
+path+=('/home/ethan/.local/bin' '/tools/texlive/2022/bin/x86_64-linux' '/tools/MATLAB/R2022b/bin/')
 
 ld_library_path+=('')
 
@@ -31,7 +32,8 @@ export LM_LICENSE_FILE=27017@flexserv1.tudelft.nl
 
 alias ll='ls -AlFhiv --group-directories-first'
 alias df='duf'
-alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y"'
+alias dus='dust -d 1'
+alias upgrade='sudo bash -c "apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean -y"'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -39,14 +41,14 @@ alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y &
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ethan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/tools/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/ethan/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ethan/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/tools/conda/etc/profile.d/conda.sh" ]; then
+        . "/tools/conda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/ethan/anaconda3/bin:$PATH"
+        export PATH="/tools/conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
