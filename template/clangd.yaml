@@ -1,0 +1,76 @@
+CompileFlags:
+  Add:
+    #- -std=c++17
+    #- -std=c17
+    - --cuda-path=/usr/local/cuda
+    - --cuda-gpu-arch=sm_61
+    - -I/usr/local/cuda/include
+    - -L/usr/local/cuda/lib64
+    - -Wall -Wextra
+
+  Remove:
+    - -forward-unknown-to-host-compiler
+    - --generate-code*
+
+  Compiler: clang
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add:
+      [
+        bugprone-*,
+        cert-dcl21-cpp,
+        cert-dcl58-cpp,
+        cert-err34-c,
+        cert-err52-cpp,
+        cert-err60-cpp,
+        cert-flp30-c,
+        cert-msc50-cpp,
+        cert-msc51-cpp,
+        cert-str34-c,
+        cppcoreguidelines-*,
+        google-default-arguments,
+        google-explicit-constructor,
+        google-runtime-operator,
+        hicpp-exception-baseclass,
+        hicpp-multiway-paths-covered,
+        misc-misplaced-const,
+        misc-new-delete-overloads,
+        misc-no-recursion,
+        misc-non-copyable-objects,
+        misc-throw-by-value-catch-by-reference,
+        misc-unconventional-assign-operator,
+        misc-uniqueptr-reset-release,
+        modernize-*,
+        openmp-use-default-none,
+        performance-*,
+        readability-*,
+      ]
+    Remove:
+      [
+        bugprone-easily-swappable-parameters,
+        bugprone-implicit-widening-of-multiplication-result,
+        cppcoreguidelines-avoid-c-arrays,
+        cppcoreguidelines-avoid-non-const-global-variables,
+        cppcoreguidelines-avoid-magic-numbers,
+        cppcoreguidelines-init-variables,
+        cppcoreguidelines-pro-bounds-pointer-arithmetic,
+        modernize-avoid-c-arrays,
+        modernize-use-trailing-return-type,
+        readability-identifier-length,
+        readability-isolate-declaration,
+        readability-magic-numbers,
+      ]
+    CheckOptions:
+      bugprone-argument-comment.StrictMode: true
+      bugprone-assert-side-effect.StrictMode: true
+      readability-identifier-naming.VariableCase: lower_case
+
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+
+Hover:
+  ShowAKA: No

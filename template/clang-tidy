@@ -1,0 +1,34 @@
+Checks: "bugprone-*,
+    cert-dcl21-cpp,
+    cert-dcl58-cpp,
+    cert-err34-c,
+    cert-err52-cpp,
+    cert-err60-cpp,
+    cert-flp30-c,
+    cert-msc50-cpp,
+    cert-msc51-cpp,
+    cert-str34-c,
+    cppcoreguidelines-*,
+    google-default-arguments,
+    google-explicit-constructor,
+    google-runtime-operator,
+    hicpp-exception-baseclass,
+    hicpp-multiway-paths-covered,
+    misc-misplaced-const,
+    misc-new-delete-overloads,
+    misc-no-recursion,
+    misc-non-copyable-objects,
+    misc-throw-by-value-catch-by-reference,
+    misc-unconventional-assign-operator,
+    misc-uniqueptr-reset-release,
+    modernize-*,
+    openmp-use-default-none,
+    performance-*,
+    readability-*,"
+CheckOptions:
+    - key:             bugprone-argument-comment.StrictMode
+        value:           true
+    - key:             bugprone-assert-side-effect.StrictMode
+        value:           true
+    - key:             readability-identifier-naming.VariableCase
+        value:           lower_case

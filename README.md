@@ -10,7 +10,7 @@ and prompt themes.
 ```bash
 apt install zsh
 git clone --depth=1 --shallow-submodules --recurse-submodules -j8 https://github.com/psdzzm/myzsh.git "${ZDOTDIR:-$HOME}/.zprezto"
-zsh -c 'setopt EXTENDED_GLOB; for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
+bash "${ZDOTDIR:-$HOME}/.zprezto/template/run.sh"
 chsh -s /bin/zsh
 ```
 

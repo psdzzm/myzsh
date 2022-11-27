@@ -30,11 +30,14 @@ export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
 export LM_LICENSE_FILE=27017@flexserv1.tudelft.nl
 
+export TMPDIR=~/ramdisk/tmp
+
+alias matlab='env MESA_LOADER_DRIVER_OVERRIDE=i965 matlab -desktop'
 alias ll='ls -AlFhiv --group-directories-first'
-alias df='duf'
+alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'
 alias upgrade='sudo bash -c "apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean -y"'
-
+alias watch='watch -c -d'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
