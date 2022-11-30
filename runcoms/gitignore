@@ -1,3 +1,6 @@
 .cache
 .idea
 .vscode
+.clangd
+.clang-format
+.clang-tidy
