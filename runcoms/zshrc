@@ -18,12 +18,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your neeeds...
+unsetopt PATH_DIRS
 
 path+=('/home/ethan/.local/bin')
 
 ld_library_path+=('')
 
 alias ll='ls -AlFhiv --group-directories-first'
+alias df='duf'
 alias upgrade='sudo bash -c "apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean -y"'
 
 
