@@ -21,7 +21,7 @@ fi
 
 . "$HOME/.cargo/env"  # Rust
 
-path+=('/home/ethan/.local/bin' '/tools/texlive/2022/bin/x86_64-linux' '/tools/MATLAB/R2022b/bin/')
+path+=("$HOME/.local/bin" "/tools/texlive/2022/bin/x86_64-linux" "/tools/MATLAB/R2022b/bin")
 
 ld_library_path+=('')
 
@@ -36,6 +36,7 @@ alias matlab='env MESA_LOADER_DRIVER_OVERRIDE=i965 matlab -desktop'
 alias ll='ls -AlFhiv --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'
+alias tmux='tmux -u'
 alias upgrade='sudo bash -c "apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean -y"'
 alias watch='watch -c -d'
 
