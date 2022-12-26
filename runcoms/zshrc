@@ -19,12 +19,14 @@ fi
 
 # Customize to your neeeds...
 
-path+=('/home/ethan/.local/bin')
+path+=("$HOME/.local/bin")
 
 ld_library_path+=('')
 
 alias ll='ls -AlFhiv --group-directories-first'
+alias tmux='tmux -u'
 alias upgrade='sudo bash -c "apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get autoclean -y"'
+alias watch='watch -c -d'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
