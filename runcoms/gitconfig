@@ -1,0 +1,12 @@
+[user]
+	name = Ethan Zhang
+	email = ethan.uni@gmx.com
+	signingkey = F4827C7454EBBCC3
+[commit]
+	gpgsign = true
+[http]
+	sslVerify = true
+[gpg]
+	program = /mnt/d/Program Files/scoop/apps/git/current/usr/bin/gpg.exe
+[core]
+	excludesfile = ~/.gitignore
