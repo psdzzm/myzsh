@@ -8,6 +8,8 @@
 # Execute code only if STDERR is bound to a TTY.
 [[ -o INTERACTIVE && -t 2 ]] && {
 
+_histdb_query "DELETE FROM history WHERE exit_status != 0 AND exit_status != 127"
+
 SAYINGS=(
     "So long and thanks for all the fish.\n  -- Douglas Adams"
     "Good morning! And in case I don't see ya, good afternoon, good evening and goodnight.\n  --Truman Burbank"
