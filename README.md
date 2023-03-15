@@ -14,6 +14,16 @@ bash "${ZDOTDIR:-$HOME}/.zprezto/template/run.sh"
 chsh -s /bin/zsh
 ```
 
+- For root user
+```bash
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zshenv /root/.zshenv
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zlogin /root/.zlogin
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zlogout /root/.zlogout
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zpreztorc /root/.zpreztorc
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zprofile /root/.zprofile
+ln -s /home/$SUDO_USER/.zprezto/runcoms/zshrc-root /root/.zshrc
+```
+
 ### Manual
 
 Prezto will work with any recent release of Zsh, but the minimum required
