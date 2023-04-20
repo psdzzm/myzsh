@@ -23,12 +23,15 @@ source $HOME/.zprezto/modules/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
 
 _zsh_autosuggest_strategy_histdb_top_here() {
-    local query="select commands.argv from
-history left join commands on history.command_id = commands.rowid
-left join places on history.place_id = places.rowid
-where places.dir LIKE '$(sql_escape $PWD)%'
-and commands.argv LIKE '$(sql_escape $1)%'
-group by commands.argv order by count(*) desc limit 1"
+    local query="SELECT commands.argv FROM
+history
+LEFT JOIN commands ON history.command_id = commands.id
+LEFT JOIN places ON history.place_id = places.id
+WHERE places.dir LIKE '$(sql_escape $PWD)%'
+AND commands.argv LIKE '$(sql_escape $1)%'
+GROUP BY commands.argv
+ORDER BY (SELECT start_time FROM history WHERE command_id = commands.id ORDER BY start_time DESC LIMIT 1) DESC
+LIMIT 1"
     suggestion=$(_histdb_query "$query")
 }
 
@@ -36,7 +39,7 @@ ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 
 . "$HOME/.cargo/env"  # Rust
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2022/bin/x86_64-linux" "/tools/MATLAB/R2022b/bin")
+path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux" "/tools/MATLAB/R2022b/bin")
 
 ld_library_path+=('')
 

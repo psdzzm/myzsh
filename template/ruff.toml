@@ -1,0 +1,27 @@
+# Enable flake8-bugbear (`B`) rules.
+select = [
+    "A",
+    "B",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "N",
+    "NPY",
+    "PD",
+    "PL",
+    "Q",
+    "RUF",
+    "S",
+]
+
+# Never enforce `E501` (line length violations).
+ignore = ["E501", "D100", "PLR2004", "PD002", "G004", "D417", "D403", "D107"]
+
+# Avoid trying to fix flake8-bugbear (`B`) violations.
+unfixable = ["B", "F401"]
+
+# Ignore `E402` (import violations) in all `__init__.py` files, and in `path/to/file.py`.
+[per-file-ignores]
+"__init__.py" = ["E402"]

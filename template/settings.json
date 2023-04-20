@@ -1,0 +1,32 @@
+{
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.intelliSenseEngine": "Default",
+    "cmake.debugConfig": {
+        "args": [
+            "-C",
+            "-k",
+            "32",
+            "-s",
+            "1e-3",
+            "-t",
+            "25",
+            "-i",
+            "benchmark.kmd",
+            "-o",
+            "labels.kml",
+            "-b"
+        ],
+        "type": "cppdbg",
+        "MIMode": "gdb",
+        "miDebuggerPath": "/usr/local/cuda/bin/cuda-gdb",
+     },
+
+     "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/ethan/zyc/C",
+            "binaryPath": "/home/ethan/zyc/C/hellocpp",
+            "binaryArgs": ["-first", "-second"],
+            "type": "lldb"
+        }
+    ]
+}

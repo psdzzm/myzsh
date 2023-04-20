@@ -18,10 +18,10 @@ fi
 #
 
 if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 if [[ -z "$VISUAL" ]]; then
-  export VISUAL='nvim'
+  export VISUAL='vim'
 fi
 if [[ -z "$PAGER" ]]; then
   export PAGER='less'
@@ -70,4 +70,17 @@ fi
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+fi
+
+#
+# fcitx
+#
+if [[ -z "$GTK_IM_MODULE" ]]; then
+  export GTK_IM_MODULE=fcitx5
+fi
+if [[ -z "$QT_IM_MODULE" ]]; then
+  export QT_IM_MODULE=fcitx5
+fi
+if [[ -z "$XMODIFIERS" ]]; then
+  export XMODIFIERS=@im=fcitx5
 fi

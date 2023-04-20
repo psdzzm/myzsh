@@ -1,7 +1,7 @@
 CompileFlags:
   Add:
-    #- -std=c++17
-    #- -std=c17
+    #- -std=c++2b -fexperimental-library
+    #- -std=c23
     - --cuda-path=/usr/local/cuda
     - --cuda-gpu-arch=sm_61
     - -I/usr/local/cuda/include
