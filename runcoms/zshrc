@@ -37,20 +37,21 @@ LIMIT 1"
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 
-. "$HOME/.cargo/env"  # Rust
+export CARGO_HOME=/tools/rust/cargo
+export RUSTUP_HOME=/tools/rust/rustup
+. "/tools/rust/cargo/env"  # Rust
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux" "/tools/MATLAB/R2022b/bin")
+
+path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux")
 
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
 export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
-export LM_LICENSE_FILE=27017@flexserv1.tudelft.nl
-
 export TMPDIR=$HOME/ramdisk/tmp
 
-alias matlab='env MESA_LOADER_DRIVER_OVERRIDE=i965 matlab -desktop'
+alias matlab='/tools/MATLAB/R2023a/bin/matlab -desktop'
 alias ll='ls -AlFhiv --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'

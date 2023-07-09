@@ -10,3 +10,5 @@ echo "SCRIPT_DIR: $SCRIPT_DIR"
 # link clangd configuration
 mkdir -p ~/.config/clangd
 ln -sf $SCRIPT_DIR/clangd.yaml ~/.config/clangd/config.yaml
+
+ln -sf $SCRIPT_DIR/java.opts ~/java.opts
