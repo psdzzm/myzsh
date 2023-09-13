@@ -24,6 +24,11 @@ ln -s /home/$SUDO_USER/.zprezto/runcoms/zprofile /root/.zprofile
 ln -s /home/$SUDO_USER/.zprezto/runcoms/zshrc-root /root/.zshrc
 ```
 
+- To configure the theme, run following
+```shell
+p10k configure
+```
+
 ### Manual
 
 Prezto will work with any recent release of Zsh, but the minimum required
