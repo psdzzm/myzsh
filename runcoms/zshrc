@@ -47,7 +47,7 @@ path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux"
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcudart.so:/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
 export TMPDIR=$HOME/ramdisk/tmp
 
@@ -76,4 +76,8 @@ else
     fi
 fi
 unset __conda_setup
+
+if [ -f "/tools/conda/etc/profile.d/mamba.sh" ]; then
+    . "/tools/conda/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
