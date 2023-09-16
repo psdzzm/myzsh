@@ -47,7 +47,7 @@ path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux"
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libcudart.so:/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 # /usr/lib/x86_64-linux-gnu/libcudart.so:
 
 export TMPDIR=$HOME/ramdisk/tmp
 
@@ -56,7 +56,7 @@ alias ll='ls -AlFhiv --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'
 alias tmux='tmux -u'
-alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y"'
+alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 

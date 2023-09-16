@@ -8,7 +8,13 @@ and prompt themes.
 
 ### Mine
 ```bash
-apt install zsh
+sudo apt install zsh fontconfig -y
+sudo mkdir -p /usr/share/fonts/NerdFonts
+sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_regular.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_bold_italic.ttf
+sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_bold.ttf
+sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_italic.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_italic.ttf
+sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_regular.ttf
+sudo fc-cache -vfs
 git clone --depth=1 --shallow-submodules --recurse-submodules -j8 https://github.com/psdzzm/myzsh.git "${ZDOTDIR:-$HOME}/.zprezto"
 bash "${ZDOTDIR:-$HOME}/.zprezto/template/run.sh"
 chsh -s /bin/zsh
