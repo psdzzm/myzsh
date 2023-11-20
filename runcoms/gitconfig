@@ -8,3 +8,6 @@
 	sslVerify = true
 [core]
 	excludesfile = /home/ethan/.gitignore
+[credential "https://git.overleaf.com"]
+	username = ethan.uni@gmx.com
+	helper = cache --timeout=7200

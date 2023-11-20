@@ -16,6 +16,7 @@ sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_ital
 sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_regular.ttf
 sudo fc-cache -vfs
 git clone --depth=1 --shallow-submodules --recurse-submodules -j8 https://github.com/psdzzm/myzsh.git "${ZDOTDIR:-$HOME}/.zprezto"
+curl -fLo ~/.zprezto/modules/completion/external/src/_docker https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
 bash "${ZDOTDIR:-$HOME}/.zprezto/template/run.sh"
 chsh -s /bin/zsh
 ```
