@@ -15,3 +15,7 @@ typeset -TUx PATH path
 
 # export LD_LIBRARY_PATH=/usr/local/cuda/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 typeset -TUx LD_LIBRARY_PATH ld_library_path
+
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
+export GIT_ASKPASS=/usr/bin/ksshaskpass

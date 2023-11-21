@@ -38,6 +38,7 @@ LIMIT 1"
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 
 export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 export CARGO_HOME=/tools/rust/cargo
 export RUSTUP_HOME=/tools/rust/rustup
