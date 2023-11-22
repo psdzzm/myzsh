@@ -13,6 +13,7 @@ fi
 
 # Add zsh-completions to $fpath.
 fpath=(${0:h}/external/src $fpath)
+fpath=(${0:h}/src $fpath)
 
 # Add completion for keg-only brewed curl on macOS when available.
 if (( $+commands[brew] )); then

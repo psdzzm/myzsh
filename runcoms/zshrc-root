@@ -41,21 +41,20 @@ export CARGO_HOME=/tools/rust/cargo
 export RUSTUP_HOME=/tools/rust/rustup
 . "/tools/rust/cargo/env"  # Rust
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux")
+path+=("$HOME/.local/bin" "$HOME/bin/bin")
 
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+# export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
 export TMPDIR=$HOME/ramdisk/tmp
 
-alias matlab='/tools/MATLAB/R2023a/bin/matlab -desktop'
 alias ll='ls -AlFhiv --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus="dust -d 1"
 alias tmux='tmux -u'
-alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y"'
+# alias upgrade='bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 

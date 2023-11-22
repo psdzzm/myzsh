@@ -10,3 +10,7 @@ echo "SCRIPT_DIR: $SCRIPT_DIR"
 # link clangd configuration
 mkdir -p ~/.config/clangd
 ln -sf $SCRIPT_DIR/clangd.yaml ~/.config/clangd/config.yaml
+
+# link gpg configuration
+mkdir -p ~/.gnupg
+ln -sf $SCRIPT_DIR/gpg-agent.conf ~/.gnupg/gpg-agent.conf
