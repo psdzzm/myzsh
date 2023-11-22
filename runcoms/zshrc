@@ -28,7 +28,7 @@ ld_library_path+=('')
 
 alias ll='ls -AlFhiv --group-directories-first'
 alias tmux='tmux -u'
-alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y"'
+alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
 
 
