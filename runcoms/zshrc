@@ -46,6 +46,11 @@ export RUSTUP_HOME=/tools/rust/rustup
 
 export VAGRANT_HOME=/tools/vagrant
 
+export CLOUDSDK_ROOT_DIR=/opt/google-cloud-cli
+export CLOUDSDK_PYTHON=/usr/bin/python
+export CLOUDSDK_PYTHON_ARGS=-S
+export PATH=$CLOUDSDK_ROOT_DIR/bin:$PATH
+export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 
 path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux" "/tools/MATLAB/R2023b/bin")
 
@@ -63,6 +68,7 @@ alias dus='dust -d 1'
 alias tmux='tmux -u'
 # alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
+alias ccat='pygmentize -g'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

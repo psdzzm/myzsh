@@ -61,6 +61,7 @@ alias dus="dust -d 1"
 alias tmux='tmux -u'
 # alias upgrade='bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
+alias ccat='pygmentize -g'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

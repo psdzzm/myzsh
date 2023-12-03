@@ -7,4 +7,4 @@ for file in ~/.ssh/*.pub; do
 done
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-ssh-add ${ssh_key_list[@]} >! ~/ramdisk/ssh-add.log 2>&1
+ssh-add ${ssh_key_list[@]}

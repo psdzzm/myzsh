@@ -22,6 +22,7 @@ chsh -s /bin/zsh
 
 - For root user
 ```bash
+sudo -i
 ln -s /home/$SUDO_USER/.zprezto/runcoms/zshenv /root/.zshenv
 ln -s /home/$SUDO_USER/.zprezto/runcoms/zlogin /root/.zlogin
 ln -s /home/$SUDO_USER/.zprezto/runcoms/zlogout /root/.zlogout

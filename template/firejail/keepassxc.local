@@ -1,0 +1,8 @@
+noblacklist ${RUNUSER}/app
+
+dbus-user filter
+dbus-user.talk org.kde.knotifications
+dbus-user.talk org.kde.StatusNotifierWatcher
+dbus-user.talk org.freedesktop.Notifications
+dbus-user.talk org.freedesktop.StatusNotifierItem
+ignore dbus-user none
