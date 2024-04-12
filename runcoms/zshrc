@@ -49,10 +49,9 @@ export VAGRANT_HOME=/tools/vagrant
 export CLOUDSDK_ROOT_DIR=/opt/google-cloud-cli
 export CLOUDSDK_PYTHON=/usr/bin/python
 export CLOUDSDK_PYTHON_ARGS=-S
-export PATH=$CLOUDSDK_ROOT_DIR/bin:$PATH
 export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2023/bin/x86_64-linux" "/tools/MATLAB/R2023b/bin")
+path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024a/bin" "$CLOUDSDK_ROOT_DIR/bin")
 
 ld_library_path+=('')
 

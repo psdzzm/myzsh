@@ -75,12 +75,12 @@ fi
 #
 # fcitx
 #
-if [[ -z "$GTK_IM_MODULE" ]]; then
-  export GTK_IM_MODULE=fcitx
-fi
-if [[ -z "$QT_IM_MODULE" ]]; then
-  export QT_IM_MODULE=fcitx
-fi
-if [[ -z "$XMODIFIERS" ]]; then
-  export XMODIFIERS=@im=fcitx
-fi
+# if [[ -z "$GTK_IM_MODULE" ]]; then
+#   export GTK_IM_MODULE=fcitx
+# fi
+# if [[ -z "$QT_IM_MODULE" ]]; then
+#   export QT_IM_MODULE=fcitx
+# fi
+# if [[ -z "$XMODIFIERS" ]]; then
+#   export XMODIFIERS=@im=fcitx
+# fi
