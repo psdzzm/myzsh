@@ -9,11 +9,8 @@ and prompt themes.
 ### Mine
 ```bash
 sudo apt install zsh fontconfig -y
-sudo mkdir -p /usr/share/fonts/NerdFonts
-sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_regular.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_bold_italic.ttf
-sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_bold.ttf
-sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_italic.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_italic.ttf
-sudo wget 'https://github.com/IlanCosman/tide/blob/assets/fonts/mesloLGS_NF_bold_italic.ttf?raw=true' -O /usr/share/fonts/NerdFonts/mesloLGS_NF_regular.ttf
+sudo mkdir -p /usr/share/fonts/Meslo
+(cd /usr/share/fonts/Meslo/ && wget -qO- https://github.com/ryanoasis/nerd-fonts/releases/download/v$(wget -qO- "https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v?([0-9\.]+)".*/\1/')/Meslo.tar.xz | sudo tar -xJvf - --wildcards "*.ttf")
 sudo fc-cache -vfs
 git clone --depth=1 --shallow-submodules --recurse-submodules -j8 -b server https://github.com/psdzzm/myzsh.git "${ZDOTDIR:-$HOME}/.zprezto"
 zsh -c 'setopt EXTENDED_GLOB; for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
