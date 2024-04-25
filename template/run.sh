@@ -18,3 +18,6 @@ ln -sf $SCRIPT_DIR/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 # link firejail configuration
 ln -sf $SCRIPT_DIR/firejail ~/.config/firejail
+
+# link vscode configuration
+ln -sf $SCRIPT_DIR/code-flags.conf ~/.config/code-flags.conf
