@@ -51,7 +51,7 @@ export CLOUDSDK_PYTHON=/usr/bin/python
 export CLOUDSDK_PYTHON_ARGS=-S
 export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024a/bin" "$CLOUDSDK_ROOT_DIR/bin")
+path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024a/bin" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
 
 ld_library_path+=('')
 
@@ -60,6 +60,7 @@ export XILINX_XRT=/opt/xilinx/xrt
 
 export TMPDIR=$HOME/ramdisk/tmp
 
+# alias sudo='sudo '
 alias matlab='matlab -desktop'
 alias ll='ls -AlFhi --group-directories-first'
 alias df='duf -width $(tput cols)'

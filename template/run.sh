@@ -16,6 +16,9 @@ ln -sf $SCRIPT_DIR/clangd.yaml ~/.config/clangd/config.yaml
 mkdir -p ~/.gnupg
 ln -sf $SCRIPT_DIR/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
+# link vim configuration
+ln -sf $SCRIPT_DIR/vimrc ~/.vimrc
+
 # link firejail configuration
 ln -sf $SCRIPT_DIR/firejail ~/.config/firejail
 

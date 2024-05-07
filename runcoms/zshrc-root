@@ -55,7 +55,7 @@ export XILINX_XRT=/opt/xilinx/xrt
 
 export TMPDIR=$HOME/ramdisk/tmp
 
-alias ll='ls -AlFhiv --group-directories-first'
+alias ll='ls -AlFhi --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus="dust -d 1"
 alias tmux='tmux -u'
