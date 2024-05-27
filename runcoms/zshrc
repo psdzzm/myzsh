@@ -19,8 +19,11 @@ fi
 
 # Customize to your neeeds...
 
-source $HOME/.zprezto/modules/zsh-histdb/sqlite-history.zsh
+source ${ZDOTDIR:-$HOME}/.zprezto/modules/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
+
+source ${ZDOTDIR:-$HOME}/.zprezto/modules/zsh-histdb/histdb-interactive.zsh
+bindkey '^r' _histdb-isearch
 
 _zsh_autosuggest_strategy_histdb_top_here() {
     local query="SELECT commands.argv FROM
@@ -36,6 +39,9 @@ LIMIT 1"
 }
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
 
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
@@ -92,3 +98,9 @@ if [ -f "/tools/conda/etc/profile.d/mamba.sh" ]; then
     . "/tools/conda/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+PATH="/home/ethan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ethan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ethan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ethan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ethan/perl5"; export PERL_MM_OPT;

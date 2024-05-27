@@ -76,6 +76,9 @@ fi
 # Sort by pinyin
 export LC_COLLATE=zh_CN.UTF-8
 
+# Ignore histroy command
+export HISTORY_IGNORE="(ls|ll|exit|pwd|clear|cd|htop|df|cd ..|cd ~)"
+
 #
 # fcitx
 #

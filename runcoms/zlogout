@@ -5,10 +5,13 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Execute code only if STDERR is bound to a TTY.
-[[ -o INTERACTIVE && -t 2 ]] && {
 
 _histdb_query "DELETE FROM history WHERE exit_status != 0 AND exit_status != 127"
+_histdb_query "DELETE FROM commands WHERE id NOT IN (SELECT command_id FROM history)"
+_histdb_query "DELETE FROM places WHERE id NOT IN (SELECT place_id FROM history)"
+
+# Execute code only if STDERR is bound to a TTY.
+[[ -o INTERACTIVE && -t 2 ]] && {
 
 SAYINGS=(
     "So long and thanks for all the fish.\n  -- Douglas Adams"
