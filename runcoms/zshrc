@@ -20,6 +20,10 @@ fi
 # Customize to your neeeds...
 precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
 
+
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+
 export TERM=xterm-256color
 export LC_COLLATE=zh_CN.utf8
 
