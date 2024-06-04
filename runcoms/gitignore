@@ -1,10 +1,3 @@
-.cache
-.idea
-.vscode
-.clangd
-.clang-format
-.clang-tidy
-
 # Created by https://www.toptal.com/developers/gitignore/api/jetbrains,clion,python,c++,c,latex,matlab,rust,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=jetbrains,clion,python,c++,c,latex,matlab,rust,linux
 
@@ -805,3 +798,13 @@ Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,clion,python,c++,c,latex,matlab,rust,linux
+
+
+# Self added
+.cache
+.idea
+.vscode
+.clangd
+.clang-format
+.clang-tidy
+!*.d

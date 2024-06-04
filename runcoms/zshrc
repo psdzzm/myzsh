@@ -20,11 +20,14 @@ fi
 # Customize to your neeeds...
 unsetopt PATH_DIRS
 
+unsetopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+
 path+=("$HOME/.local/bin")
 
 ld_library_path+=('')
 
-alias ll='ls -AlFhiv --group-directories-first'
+alias ll='ls -AlFhi --group-directories-first'
 alias tmux='tmux -u'
 alias df='duf -width $(tput cols)'
 alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
