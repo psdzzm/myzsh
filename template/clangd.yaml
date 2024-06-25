@@ -1,12 +1,14 @@
 CompileFlags:
   Add:
-    #- -std=c++2b -fexperimental-library
+    #- -std=c++23
     #- -std=c23
-    - --cuda-path=/usr/local/cuda
-    - --cuda-gpu-arch=sm_61
-    - -I/usr/local/cuda/include
-    - -L/usr/local/cuda/lib64
-    - -Wall -Wextra
+    # - -fexperimental-library
+    - --cuda-path=/opt/cuda
+    - --cuda-gpu-arch=sm_89
+    - -I/opt/cuda/include
+    - -L/opt/cuda/lib64
+    - -Wall
+    - -Wextra
 
   Remove:
     - -forward-unknown-to-host-compiler
