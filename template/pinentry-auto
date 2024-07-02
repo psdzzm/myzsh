@@ -8,7 +8,15 @@ test -r "${XDG_CONFIG_HOME:-$HOME/.config}"/pinentry/preexec &&
 test -r /etc/pinentry/preexec &&
     . /etc/pinentry/preexec
 
-test -e /usr/lib/libgtk-x11-2.0.so.0 &&
+
+# check for Qt dependencies
+test -e /usr/lib/libQt6Core.so.6 &&
     exec /usr/bin/pinentry-qt "$@"
+
+
+# check for GTK dependencies
+test -e /usr/lib/libgtk-x11-2.0.so.0 &&
+    exec /usr/bin/pinentry-gtk-2 "$@"
+
 
 exec /usr/bin/pinentry-curses "$@"
