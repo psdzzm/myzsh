@@ -1,1 +1,4 @@
 *.pdf binary diff=pdf
+*.ipynb	diff=jupyternotebook
+
+*.ipynb	merge=jupyternotebook

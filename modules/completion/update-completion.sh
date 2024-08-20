@@ -17,6 +17,7 @@ echo "Updating rustup and cargo completions"
 rustup completions zsh >! "${SCRIPT_DIR}/src/_rustup"
 rustup completions zsh cargo >! "${SCRIPT_DIR}/src/_cargo"
 
+procs --gen-completion-out zsh >! "${SCRIPT_DIR}/src/_procs"
 
 echo "Deleting completion cache"
 rm -rf ~/.zcompdump

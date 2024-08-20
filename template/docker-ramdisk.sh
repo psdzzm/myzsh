@@ -23,9 +23,11 @@ if [ ! -d $BASE_DIR ]; then
     mkdir -p $BASE_DIR
 fi
 
+echo "{}" > /home/ethan/ramdisk/tmp/docker.json
+
 dockerd -H unix:///var/run/$BRIDAGE.sock \
         -p /var/run/$BRIDAGE.pid \
         --bridge=docker_ramdisk \
-        --config-file /home/ethan/ramdisk/docker.json \
+        --config-file /home/ethan/ramdisk/tmp/docker.json \
         --data-root=/home/ethan/ramdisk/$BRIDAGE \
         --exec-root=/home/ethan/ramdisk/$BRIDAGE

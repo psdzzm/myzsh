@@ -66,6 +66,15 @@ export XILINX_XRT=/opt/xilinx/xrt
 
 export TMPDIR=$HOME/ramdisk/tmp
 
+
+
+# Check if ssh
+if [[ -n $SSH_CONNECTION ]]; then
+  export PINENTRY_USER_DATA=USE_TTY=1
+  unset SSH_AUTH_SOCK
+fi
+
+
 # alias sudo='sudo '
 alias matlab='matlab -desktop'
 alias ll='ls -AlFhi --group-directories-first'
@@ -75,6 +84,7 @@ alias tmux='tmux -u'
 # alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
 alias watch='watch -c -d'
 alias ccat='pygmentize -g'
+alias dockerr='docker -H unix:///var/run/docker_ramdisk.sock'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

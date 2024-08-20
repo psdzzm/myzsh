@@ -8,6 +8,9 @@ test -r "${XDG_CONFIG_HOME:-$HOME/.config}"/pinentry/preexec &&
 test -r /etc/pinentry/preexec &&
     . /etc/pinentry/preexec
 
+# Use pinentry-curses if $PINENTRY_USER_DATA contains USE_TTY=1
+echo $PINENTRY_USER_DATA | grep -q USE_TTY=1 &&
+    exec /usr/bin/pinentry-curses "$@"
 
 # check for Qt dependencies
 test -e /usr/lib/libQt6Core.so.6 &&
