@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=xcape -e "Super_L=Super_R"
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_GB]=xcape
+Comment[en_GB]=No description
+X-GNOME-Autostart-Delay=0

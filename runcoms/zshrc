@@ -57,12 +57,14 @@ export CLOUDSDK_PYTHON=/usr/bin/python
 export CLOUDSDK_PYTHON_ARGS=-S
 export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024a/bin" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
+path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024b/bin" "/tools/questa/questasim/linux_x86_64" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
 
 ld_library_path+=('')
 
 export XILINX_XRT=/opt/xilinx/xrt
 # export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 # /usr/lib/x86_64-linux-gnu/libcudart.so:
+
+export LM_LICENSE_FILE=/home/ethan/zyc/Nextcloud/modelsim_lic/license.dat
 
 export TMPDIR=$HOME/ramdisk/tmp
 
@@ -82,7 +84,7 @@ alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'
 alias tmux='tmux -u'
 # alias upgrade='sudo bash -c "apt update && apt upgrade -y && apt autoremove --purge -y && apt autoclean -y"'
-alias watch='watch -c -d'
+alias watch='viddy -d'
 alias ccat='pygmentize -g'
 alias dockerr='docker -H unix:///var/run/docker_ramdisk.sock'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
