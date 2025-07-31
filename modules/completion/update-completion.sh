@@ -17,7 +17,14 @@ echo "Updating rustup and cargo completions"
 rustup completions zsh >! "${SCRIPT_DIR}/src/_rustup"
 rustup completions zsh cargo >! "${SCRIPT_DIR}/src/_cargo"
 
+echo "Updating procs completion"
 procs --gen-completion-out zsh >! "${SCRIPT_DIR}/src/_procs"
+
+echo "Updating restic completion"
+resticprofile generate --zsh-completion >! "${SCRIPT_DIR}/src/_resticprofile"
+
+echo "Updating rustic completion"
+rustic completions zsh >! "${SCRIPT_DIR}/src/_rustic"
 
 echo "Deleting completion cache"
 rm -rf ~/.zcompdump

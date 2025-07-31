@@ -801,6 +801,7 @@ Cargo.lock
 
 
 # Self added
+node_modules/
 .cache
 .idea
 .vscode

@@ -22,7 +22,6 @@ Diagnostics:
     Add:
       [
         bugprone-*,
-        cert-dcl21-cpp,
         cert-dcl58-cpp,
         cert-err34-c,
         cert-err52-cpp,
@@ -61,8 +60,11 @@ Diagnostics:
         modernize-avoid-c-arrays,
         modernize-use-trailing-return-type,
         readability-identifier-length,
+        readability-identifier-naming,
         readability-isolate-declaration,
         readability-magic-numbers,
+        readability-math-missing-parentheses,
+        performance-avoid-endl,
       ]
     CheckOptions:
       bugprone-argument-comment.StrictMode: true

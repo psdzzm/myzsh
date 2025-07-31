@@ -1,3 +1,6 @@
+export GPG_TTY=$(tty)
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -18,6 +21,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your neeeds...
+
+if [[ -s "/etc/profile.d/modules.sh" ]]; then
+  source "/etc/profile.d/modules.sh"
+  export MODULEPATH=$HOME/.zprezto/modulefiles:$MODULEPATH
+  module load Matlab texlive rust cuda
+fi
+
+export MANPATH=$MANPATH:
 
 source ${ZDOTDIR:-$HOME}/.zprezto/modules/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
@@ -43,12 +54,9 @@ ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 unsetopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY_TIME
 
-export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
-export CARGO_HOME=/tools/rust/cargo
-export RUSTUP_HOME=/tools/rust/rustup
-. "/tools/rust/cargo/env"  # Rust
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
 
 export VAGRANT_HOME=/tools/vagrant
 
@@ -57,28 +65,31 @@ export CLOUDSDK_PYTHON=/usr/bin/python
 export CLOUDSDK_PYTHON_ARGS=-S
 export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 
-path+=("$HOME/.local/bin" "$HOME/bin/bin" "/tools/texlive/2024/bin/x86_64-linux" "/tools/MATLAB/R2024b/bin" "/tools/questa/questasim/linux_x86_64" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
+# export ANDROID_HOME=/tools/JetBrains/Android/Sdk
+# export ANDROID_AVD_HOME=
+# export JAVA_HOME=/tools/JetBrains/android-studio/jbr
+
+path+=("$HOME/.local/bin" "/tools/questa/questasim/linux_x86_64" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
 
 ld_library_path+=('')
 
-export XILINX_XRT=/opt/xilinx/xrt
+# export XILINX_XRT=/opt/xilinx/xrt
 # export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 # /usr/lib/x86_64-linux-gnu/libcudart.so:
 
 export LM_LICENSE_FILE=/home/ethan/zyc/Nextcloud/modelsim_lic/license.dat
 
 export TMPDIR=$HOME/ramdisk/tmp
 
-
+export UV_CACHE_DIR=/tools/conda/.uv_cache
+export UV_LINK_MODE=clone
 
 # Check if ssh
 if [[ -n $SSH_CONNECTION ]]; then
-  export PINENTRY_USER_DATA=USE_TTY=1
-  unset SSH_AUTH_SOCK
+    export PINENTRY_USER_DATA="USE_TTY=1"
 fi
 
 
 # alias sudo='sudo '
-alias matlab='matlab -desktop'
 alias ll='ls -AlFhi --group-directories-first'
 alias df='duf -width $(tput cols)'
 alias dus='dust -d 1'
@@ -91,6 +102,13 @@ alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+PATH="/home/ethan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ethan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ethan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ethan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ethan/perl5"; export PERL_MM_OPT;
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -105,14 +123,18 @@ else
     fi
 fi
 unset __conda_setup
-
-if [ -f "/tools/conda/etc/profile.d/mamba.sh" ]; then
-    . "/tools/conda/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 
-PATH="/home/ethan/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/ethan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/ethan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/ethan/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/ethan/perl5"; export PERL_MM_OPT;
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/tools/conda/bin/mamba';
+export MAMBA_ROOT_PREFIX='/tools/conda';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

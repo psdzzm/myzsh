@@ -3,7 +3,7 @@
 set -e
 
 BRIDAGE=docker_ramdisk
-BASE_DIR=/home/ethan/ramdisk/$BRIDAGE
+BASE_DIR=/dev/shm/$BRIDAGE
 
 # Check if root
 if [ $(id -u) -ne 0 ]; then
@@ -29,5 +29,5 @@ dockerd -H unix:///var/run/$BRIDAGE.sock \
         -p /var/run/$BRIDAGE.pid \
         --bridge=docker_ramdisk \
         --config-file /home/ethan/ramdisk/tmp/docker.json \
-        --data-root=/home/ethan/ramdisk/$BRIDAGE \
-        --exec-root=/home/ethan/ramdisk/$BRIDAGE
+        --data-root=$BASE_DIR \
+        --exec-root=$BASE_DIR

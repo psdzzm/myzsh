@@ -13,6 +13,7 @@
 	quotepath = false
     pager = delta
 	attributesfile = /home/ethan/.gitattributes
+	autocrlf = input
 
 
 [interactive]
