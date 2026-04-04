@@ -26,8 +26,9 @@ setopt INC_APPEND_HISTORY_TIME
 
 export TERM=xterm-256color
 export LC_COLLATE=zh_CN.utf8
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
-path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin" "$HOME/.local/bin")
 
 ld_library_path+=('')
 
@@ -39,3 +40,15 @@ alias watch='watch -c -d'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# bun completions
+[ -s "/home/ethan/.bun/_bun" ] && source "/home/ethan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+if [ -f /usr/local/bin/weed ]; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C /usr/local/bin/weed weed
+fi
