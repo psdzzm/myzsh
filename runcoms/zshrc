@@ -69,7 +69,7 @@ export GOOGLE_CLOUD_SDK_HOME=$CLOUDSDK_ROOT_DIR
 # export ANDROID_AVD_HOME=
 # export JAVA_HOME=/tools/JetBrains/android-studio/jbr
 
-path+=("$HOME/.local/bin" "/tools/questa/questasim/linux_x86_64" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
+path+=("$HOME/.local/bin" "$HOME/.bun/bin" "/tools/questa/questasim/linux_x86_64" "$HOME/.local/share/JetBrains/Toolbox/scripts" "$CLOUDSDK_ROOT_DIR/bin")
 
 ld_library_path+=('')
 
@@ -101,6 +101,7 @@ alias dockerr='docker -H unix:///var/run/docker_ramdisk.sock'
 alias dockerclean='docker rmi $(docker images -qf dangling=true); docker volume prune; docker network prune; docker builder prune'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 PATH="/home/ethan/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -138,3 +139,6 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

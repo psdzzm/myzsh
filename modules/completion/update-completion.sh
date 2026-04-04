@@ -23,9 +23,17 @@ procs --gen-completion-out zsh >! "${SCRIPT_DIR}/src/_procs"
 echo "Updating restic completion"
 resticprofile generate --zsh-completion >! "${SCRIPT_DIR}/src/_resticprofile"
 
+# echo "Updating zellij completion"
+# zellij setup --generate-completions zsh >! "${SCRIPT_DIR}/src/_zellij"
+
 echo "Updating rustic completion"
 rustic completions zsh >! "${SCRIPT_DIR}/src/_rustic"
 
 echo "Deleting completion cache"
 rm -rf ~/.zcompdump
 rm -rf ~/.cache/prezto/zcompdump
+
+autoload -Uz compinit
+mkdir -p ~/.cache/prezto
+compinit -C -d ~/.cache/prezto/zcompdump
+zcompile ~/.cache/prezto/zcompdump

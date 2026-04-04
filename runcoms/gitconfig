@@ -1,7 +1,7 @@
 [user]
 	name = Ethan Zhang
 	email = ethan.uni@gmx.com
-	signingkey = F4827C7454EBBCC3
+	signingkey = F12E358C2CB55782
 [commit]
 	gpgsign = true
 [http]
